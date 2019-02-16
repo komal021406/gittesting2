@@ -14,3 +14,11 @@ class="btn btn-primary" style="margin-bottom:30px" [disabled]="!allowNewServer" 
 
 <app-server></app-server>
 <app-server></app-server>
+<br>
+
+<label for="">User Name:</label>
+<input type="text" class="form-control" [(ngModel)]="userName" (input)="enableResetUser()">
+
+<p>{{ userName }}</p>
+
+<button class="btn btn-primary" style="margin-bottom:30px" [disabled]="!allowResetUser" (click)="resetUser()">Reset User</button>

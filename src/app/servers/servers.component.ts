@@ -10,6 +10,8 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No server was created!';
   serverName = 'Test server';
+  userName = '';
+  allowResetUser = false;
 
   constructor() {
     setTimeout(() => {
@@ -21,12 +23,23 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
-    this.serverCreationStatus = 'Server was created!';
+    this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
 
   onUpdateServerName(event: any) {
     console.log(event);
     this.serverName = event.target.value;
+  }
+
+  enableResetUser() {
+    if(this.userName != '') {
+      this.allowResetUser = true;
+    }
+  }
+
+  resetUser() {
+    this.userName = '';
+    this.allowResetUser = false;
   }
 
 }
