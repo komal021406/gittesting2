@@ -9,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No server was created!';
-  serverName = 'Test server';
+  serverName = '';
   userName = '';
   allowResetUser = false;
+  serverCreated = false;
+  servers = ['Test server', 'Test server 2'];
+  showSecret = false;
+  log = [];
 
   constructor() {
     setTimeout(() => {
@@ -23,6 +27,8 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
 
@@ -40,6 +46,12 @@ export class ServersComponent implements OnInit {
   resetUser() {
     this.userName = '';
     this.allowResetUser = false;
+  }
+
+  onToggleDetails() {
+    this.showSecret = !this.showSecret;
+    // this.log.push(this.log.length + 1);
+    this.log.push(new Date());
   }
 
 }

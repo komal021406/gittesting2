@@ -7,3 +7,15 @@ input {
 p {
     margin-bottom: 20px;
 }
+
+.displayed {
+    visibility: visible;
+}
+
+.notDisplayed {
+    visibility: hidden;
+}
+
+.white-text {
+    color: white;
+}
